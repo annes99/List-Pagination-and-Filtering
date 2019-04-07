@@ -32,6 +32,7 @@ body{
       border: 1px solid #eaeaea;
       padding: 8px 15px;
       font-size: 14px;
+      margin-right: 5px; 
     }
 
     .page-header .student-search button{
@@ -43,7 +44,24 @@ body{
       color: #fff
     }
 
-.student-list{}
+    button:focus {
+      outline: none;
+    }
+
+    #button:hover {
+      background-color: rgba(75, 166, 195, 0.1);
+      border: 1px solid rgb(75, 166, 195);
+      color: rgb(75, 166, 195);
+      cursor: pointer;
+    }
+
+    #alert {
+      color: rgb(75, 166, 195);
+      font-size: 25px;
+      padding-top: 100px;
+      text-align: center;
+    }
+
 
   .student-item{
     margin: 0 0 20px 0;
