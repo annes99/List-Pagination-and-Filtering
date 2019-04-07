@@ -25,6 +25,12 @@ const showPage = (list, page) => {
 
 const appendPageLinks = list => {
 
+   //func to prevent unwanted pagelinks showing after click & pageup events
+  const link = document.querySelector('.pagination');
+  if(document.contains(link)) {
+    link.remove();
+  }
+
    // create <div> container with nested <ul> tags
    const div = document.createElement('div');
    div.setAttribute('class', 'pagination');
@@ -96,6 +102,48 @@ alert.textContent = "Sorry, we couldn't find a match for you this time 😿";
 alert.setAttribute('id', 'alert');
 searcDiv.appendChild(alert);
 alert.style.display = 'none';
+
+// ***** click & keyup eventhandler for searchbar ********
+
+const  eventHandler = () => {
+    
+   let searchBarInput;
+   // checking if it's a mouseEvent to give correct value to searchBarInput
+   // also input/output to lowerCase, so case would not be an issue
+   MouseEvent ? searchBarInput = search.value.toLowerCase() : searchBarInput = event.target.value.toLowerCase();
+   // creating a array to store search results 
+   let searchResults = [];
+   // getting all students names
+   const people = document.querySelector(".student-list").getElementsByTagName('h3');
+     for(let i = 0; i < people.length; i++){
+       let name = people[i].textContent;
+       students[i].style.display = 'none';
+       
+         // cheking if the searchbar input includes part of student name
+         // if yes, store it searchResults, it's used for displaying correct students & pagenumbers
+       if (name.toLowerCase().includes(searchBarInput)) {
+         searchResults.push(students[i]);
+         } 
+     }
+ 
+   // if search ends whith no results a message will be displayed
+  alert.style.display = searchResults.length === 0 ? 'block' : 'none';
+ 
+  // call showPage to display student info according to search results
+ showPage(searchResults, pageNumbers(searchResults.length));
+ // call appendPageLinks to display page numbers according to search results
+ appendPageLinks(searchResults);
+ // call showPage again to show initial page (all students) if search input is deleted
+ showPage(searchResults, 1); 
+};
+
+
+
+const search = document.querySelector('.searchInput');
+const buttonId = document.querySelector('#button');
+
+buttonId.addEventListener('click', eventHandler);
+search.addEventListener('keyup', eventHandler);
 
  // calling showPage & appendPageLinks so when page loads first time
 // it shows info of max 10 students and page links to others if there's more
