@@ -67,6 +67,36 @@ const appendPageLinks = list => {
    
  };
 
+ // **** creating HTML elements for searchbar ****
+
+// creating <div> container for <input> field and <button>
+const searcDiv = document.querySelector('.page-header');
+const div = document.createElement('div');
+searcDiv.appendChild(div);
+div.setAttribute('class', 'student-search');
+
+// creating <input> field with placeholder text
+const input = document.createElement('input');
+div.appendChild(input);
+input.setAttribute('placeholder', 'Search for students...');
+input.setAttribute('class', 'searchInput');
+input.type = 'text';
+
+// creating a <button>
+const button = document.createElement('button');
+button.textContent = 'Search';
+button.type =  'button';
+button.setAttribute('id', 'button');
+div.appendChild(button);
+
+// alert if no search results 
+
+const alert = document.createElement('h1');
+alert.textContent = "Sorry, we couldn't find a match for you this time 😿";
+alert.setAttribute('id', 'alert');
+searcDiv.appendChild(alert);
+alert.style.display = 'none';
+
  // calling showPage & appendPageLinks so when page loads first time
 // it shows info of max 10 students and page links to others if there's more
 showPage(students, 1);
