@@ -17,7 +17,7 @@
 
 ## Demo
 
-Active demo - [List Pagination and Filtering](https://annes99.github.io/List-Pagination-and-Filtering/)
+Active demo: <a href="https://annes99.github.io/List-Pagination-and-Filtering" target="_blank">List Pagination and Filtering</a>
 
 ## Screenshot
 
@@ -35,5 +35,4 @@ Treehouse Techdegree: FSJS project 2 - List Filter and Pagination
 
 ## Contact
 
-Created by [@Annes99](https://github.com/annes99)
-[https://github.com/annes99](https://github.com/annes99)
+Created by [@Annes](https://github.com/annes99)
