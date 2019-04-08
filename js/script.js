@@ -29,10 +29,10 @@ const showPage = (list, page) => {
 
 const appendPageLinks = list => {
 
-  //func to remove unwanted page numbers after every click, keyeup & cut events
+  //remove unwanted page numbers after every click, keyeup & cut events
   const link = document.querySelector('.pagination');
-  if(document.contains(link)) {
-    link.remove();
+  if(link) {
+    link.parentNode.removeChild(link);
   }
 
   // create <div> container with nested <ul> tags
